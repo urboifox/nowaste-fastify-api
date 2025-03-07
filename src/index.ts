@@ -21,7 +21,7 @@ const app = fastify(opts);
 
 // Plugins
 app.register(plugins);
-app.register(routes);
+app.register(routes, { prefix: '/api' });
 
 app.get('/', () => {
     return { hello: 'world' };
