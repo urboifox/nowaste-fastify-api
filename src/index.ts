@@ -23,6 +23,10 @@ const app = fastify(opts);
 app.register(plugins);
 app.register(routes);
 
+app.get('/', () => {
+    return { hello: 'world' };
+});
+
 // Start listening for requests!
 try {
     await app.listen({ port: 3000 });
