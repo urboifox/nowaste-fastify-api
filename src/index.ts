@@ -1,4 +1,8 @@
-import fastify, { type FastifyServerOptions } from 'fastify';
+import fastify, {
+    type FastifyReply,
+    type FastifyRequest,
+    type FastifyServerOptions
+} from 'fastify';
 import { routes } from './lib/routes';
 import { plugins } from './lib/plugins';
 
@@ -36,7 +40,7 @@ try {
 }
 
 // For vercel deployment
-export default async function handler(req: any, res: any) {
+export default async function handler(req: FastifyRequest, res: FastifyReply) {
     await app.ready();
     app.server.emit('request', req, res);
 }
