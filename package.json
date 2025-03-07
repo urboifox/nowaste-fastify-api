@@ -5,13 +5,19 @@
     "scripts": {
         "start": "bun run src/index.ts",
         "dev": "bun run --watch src/index.ts",
-        "format": "prettier --write \"src/**/*.ts\""
+        "format": "prettier --write \"src/**/*.ts\"",
+        "build": "bun build ./src/index.ts --target node --outdir dist",
+        "vercel-build": "bun run build"
+    },
+    "engines": {
+        "node": ">=18.0.0"
     },
     "devDependencies": {
-        "@types/bun": "latest"
+        "@types/bun": "latest",
+        "@types/node": "^22.13.9"
     },
     "peerDependencies": {
-        "typescript": "^5.0.0"
+        "typescript": "^5.8.2"
     },
     "dependencies": {
         "@fastify/cors": "^11.0.0",
