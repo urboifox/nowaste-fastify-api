@@ -34,11 +34,17 @@ export const createServer = () => {
 const app = createServer();
 
 // For local development
-if (import.meta.main) {
-    try {
-        await app.listen({ port: 3000 });
-    } catch (err) {
-        app.log.error(err);
-        process.exit(1);
-    }
+if (process.env.NODE_ENV === 'development') {
+    // try {
+    //     await app.listen({ port: 3000 });
+    // } catch (err) {
+    //     app.log.error(err);
+    //     process.exit(1);
+    // }
+}
+
+// For vercel serverless deployment
+export default async function handler(req: any, res: any) {
+    await app.ready();
+    app.server.emit('request', req, res);
 }

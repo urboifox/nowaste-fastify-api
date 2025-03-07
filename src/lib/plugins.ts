@@ -4,8 +4,7 @@ import fp from 'fastify-plugin';
 
 export const plugins = fp((app, _opts, done) => {
     app.register(fastifyPostgres, {
-        connectionString: process.env.DB_URI!,
-        promise: true
+        connectionString: process.env.DB_URI!
     });
 
     app.register(fastifyCors);
