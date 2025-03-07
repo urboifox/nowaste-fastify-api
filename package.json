@@ -6,7 +6,7 @@
         "start": "node dist/index.js",
         "dev": "bun run --watch src/index.ts",
         "format": "prettier --write \"src/**/*.ts\"",
-        "build": "bun build src/index.ts --outdir dist --target node",
+        "build": "bun build src/vercel.ts --outdir dist --target node --ignore src/index.ts",
         "vercel-build": "bun run build"
     },
     "engines": {
